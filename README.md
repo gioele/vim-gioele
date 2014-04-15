@@ -4,6 +4,15 @@ vim-gioele
 Gioele's Vim settings. For Vim and GVim.
 
 
+Installation
+------------
+
+Use pathogen:
+
+    $ cd ~/.vim/bundle
+    $ git clone https://github.com/gioele/vim-gioele.git
+
+
 License
 -------
 
