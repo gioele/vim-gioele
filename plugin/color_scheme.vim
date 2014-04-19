@@ -7,6 +7,3 @@ endif
 set background=light
 
 colorscheme solarized
-if &diff
-	colorscheme github
-end
