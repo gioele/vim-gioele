@@ -3,6 +3,8 @@ if has('gui_running')
 	set guioptions-=T
 	set guifont=Monospace\ 12
 
+	set columns=90 lines=40
+
 	vmap <C-c> "+yi
 	vmap <C-x> "+c
 	vmap <C-v> c<ESC>"+p
