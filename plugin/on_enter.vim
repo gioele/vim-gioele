@@ -1,17 +1,20 @@
 autocmd vimenter * if !argc() | NERDTree | endif
 
-if $DISPLAY != ''
-	if !has('gui_running')
-		let ppid = system('ps -p ' . getpid() . ' -o ppid=')[:-2]
-		let parent = system('ps -p ' . ppid . ' -o comm=')[:-2]
+" Use gvim instead of vim if possible
 
-		let opts = ''
-		if parent != 'bash'
-			let opts = '--nofork'
-		end
+let in_x11 = !empty($DISPLAY)
+let is_text_vim = !has('gui_running')
 
-		call system('gvim ' . opts . ' ' . shellescape(@%))
+if in_x11 && is_text_vim
+	let ppid = system('ps -p ' . getpid() . ' -o ppid=')[:-2]
+	let parent = system('ps -p ' . ppid . ' -o comm=')[:-2]
 
-		quit
-	endif
+	let opts = ''
+	if parent != 'bash'
+		let opts = '--nofork'
+	end
+
+	call system('gvim ' . opts . ' ' . shellescape(@%))
+
+	quit
 endif
