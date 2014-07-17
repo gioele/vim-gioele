@@ -9,4 +9,7 @@ if has('gui_running')
 	vmap <C-x> "+c
 	vmap <C-v> c<ESC>"+p
 	imap <C-v> <C-r><C-o>+
+
+	" use the common I shaped cursor during visual selections
+	set mouseshape=v:beam
 endif
